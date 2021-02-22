@@ -4,7 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h2 class="text-center">{{$user->companyName}} Jobs </h2>
+                <h2 class="text-center"> Jobs </h2>
+                @if($jobs->count())
                 <div class="card ">
                     <section class="lang">
                         <div class="container">
@@ -16,7 +17,7 @@
 
                                     <div class="flex-1">
                                         <span>{{$job->title}}</span>
-                                        <span >{{$job->user->companyName}}</span>
+                                        <a href="">{{$job->user->companyName}}</a>
                                         <span>{{$job->location}}</span>
                                     </div>
                                     <div>
@@ -36,6 +37,9 @@
 
                     </section>
                 </div>
+                @else
+                <p class="text-center">no jobs jet</p>
+                    @endif
             </div>
 
             <div class="col-md-4">

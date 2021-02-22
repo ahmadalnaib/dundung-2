@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AllJobsController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CategoryJobController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontJobsController;
 use App\Http\Controllers\HomeController;
@@ -25,7 +26,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/alll',[FrontJobsController::class, 'index'])->name('alll');
 
-Route::get('/users/{user}/jobs', [UserJobController::class, 'index'])->name('users.jobs');
+Route::get('/users/{user:companyName}/jobs', [UserJobController::class, 'index'])->name('users.jobs');
+Route::get('/categories/{category}/jobs', [CategoryJobController::class, 'index'])->name('categories.jobs');
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
@@ -42,7 +44,7 @@ Route::resource('/jobs',JobController::class);
 
 Route::group(['middleware'=>'auth','admin'],function (){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/users',[UsersController::class, 'index'])->name('users');
+    Route::get('/users',[UsersController::class, 'index'])->name('users');
     Route::get('/alljobs',[AllJobsController::class, 'index'])->name('alljobs');
 
 });

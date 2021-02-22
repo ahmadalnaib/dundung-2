@@ -48,7 +48,7 @@
             <h2 class="">Popular Jobs</h2>
             <div class="show-jobs-text  py-2">
                 @foreach($categories as $category)
-                <a href="">{{$category->name}}</a>
+                <a href="{{route('categories.jobs',$category->id)}}">{{$category->name}}</a>
                 @endforeach
             </div>
         </div>
@@ -66,8 +66,8 @@
                     </div>
 
                     <div class="flex-1">
-                        <a href="">{{$job->title}}</a>
-                        <span>{{$job->name}}</span>
+                      <span>{{$job->title}}</span>
+                        <a href="{{route('users.jobs',$job->user)}}">{{$job->user->companyName}}</a>
                         <span>{{$job->location}}</span>
                     </div>
                    <div>

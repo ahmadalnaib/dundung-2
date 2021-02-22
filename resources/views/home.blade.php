@@ -2,6 +2,5 @@
 
 
 @section('content')
-
     @include('layouts.sideBar')
 @endsection

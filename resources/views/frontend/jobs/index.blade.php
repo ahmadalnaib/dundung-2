@@ -4,8 +4,8 @@
     <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <h2 class="text-center">Jobs</h2>
-            <div class="card bg-dark">
+            <h2 class="text-center"> Jobs</h2>
+            <div class="card ">
                 <section class="lang">
                     <div class="container">
                         @foreach($jobs as $job)
@@ -15,8 +15,8 @@
                                 </div>
 
                                 <div class="flex-1">
-                                    <a href="">{{$job->title}}</a>
-                                    <span>{{$job->name}}</span>
+                                  <span>{{$job->title}}</span>
+                                    <a href="{{route('users.jobs',$job->user)}}">{{$job->user->companyName}}</a>
                                     <span>{{$job->location}}</span>
                                 </div>
                                 <div>
@@ -36,6 +36,7 @@
 
                 </section>
             </div>
+
         </div>
 
         <div class="col-md-4">
@@ -48,18 +49,13 @@
             </div>
             <ul class="list-group">
                 @foreach($categories as $category)
-                    <a href="#" class="list-group-item list-group-item-action">{{$category->name}}</a>
+                    <a href="{{route('categories.jobs',$category->id)}}" class="list-group-item list-group-item-action">{{$category->name}}</a>
                 @endforeach
             </ul>
         </div>
 
         </div>
     </div>
-
-
-
-
-
 
 
 
